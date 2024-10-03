@@ -142,3 +142,7 @@ if __name__ == '__main__':
 
     out1 = prf1(x1)
     out2 = prf2(x1)
+
+    assert out1.shape == (T, B, C)
+    assert out2.shape == (T, B, C)
+
