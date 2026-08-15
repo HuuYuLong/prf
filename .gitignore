@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Data (datasets are not part of the release; keep getdata.sh and README.md)
+data/*
+!data/getdata.sh
+!data/README.md
+
+# Training outputs / logs / checkpoints
+outputs*/
+save_output/
+save_seq_img/
+checkpoints/
+chekpoints/
+resume/
+wandb/
+*.log
+*.ckpt
+*.pt
+*.pth
+
+# Misc
+.DS_Store
+*.zip
+*.tar.gz

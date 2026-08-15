@@ -1,0 +1,42 @@
+# Conda environment for reproducing the PRF experiments.
+# The package versions match the environment used to run the paper's experiments
+# (Windows + CUDA 11.8, Python 3.10, torch 2.2.2+cu118).
+#
+# Usage:
+#   conda env create -f environment.yml
+#   conda activate prf
+name: prf
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy=1.26.4
+  - scipy=1.12.0
+  - pandas=2.2.1
+  - scikit-learn=1.4.2
+  - matplotlib=3.8.3
+  - seaborn=0.13.2
+  - pyyaml=6.0.1
+  - tqdm
+  - rich=13.7.1
+  - prettytable=3.10.0
+  - imageio=2.34.0
+  - pip:
+      - --index-url https://download.pytorch.org/whl/cu118
+      - torch==2.2.2
+      - torchvision==0.17.2
+      - torchaudio==2.2.2
+      - torchtext==0.17.2
+      - pytorch-lightning==2.5.2
+      - torchmetrics==1.4.0.post0
+      - hydra-core==1.3.2
+      - omegaconf==2.3.0
+      - einops==0.7.0
+      - pillow==10.3.0
+      - datasets==2.18.0
+      - wandb==0.16.6
+      - timm==0.8.17.dev0
+      - spikingjelly==0.0.0.0.14
+      - thop==0.1.1.post2209072238

@@ -1,0 +1,62 @@
+# @package _global_
+defaults:
+  - /pipeline: wt103
+  - /model: snn
+#  - override /model/layer: s4s4ff
+
+# Dataset
+dataset:
+  test_split: True
+loader:
+  batch_size: 1
+  l_max: 8192
+  n_context: 1
+  eval:
+    batch_size: null
+    l_max: null
+
+task:
+  div_val: 4
+  dropemb: 0.25
+  dropsoft: 0.25
+
+# Model
+model:
+  dropinp: 0.0
+  dropout: 0.0
+  prenorm: True
+  n_layers: 16
+  d_model: 1024
+  transposed: false # Saves memory
+  tie_dropout: false # More standard
+  layer:
+    dt_min: 0.001
+    dt_max: 0.1
+    fr_scale: 10.
+    train_scale: true
+    v_th: 1.
+    tau: 100.
+    neuron_lr: 0.0004
+    spatial: 'Binary'
+    temporal: "prf_train"
+
+
+# Optimizer (adamw)
+optimizer:
+  lr: 1e-3
+  weight_decay: 0.1
+
+# Scheduler (cosine)
+trainer:
+  max_epochs: 1000
+
+scheduler:
+  num_warmup_steps: 1000
+  num_training_steps: 800000
+
+train:
+  seed: 1111
+  monitor: test/ppl
+  optimizer_param_grouping:
+    normalization_weight_decay: true
+    bias_weight_decay: true

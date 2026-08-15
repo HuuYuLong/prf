@@ -1,0 +1,53 @@
+# @package _global_
+defaults:
+  - /pipeline: pathfinder
+  - /model: snn
+  - override /scheduler: cosine_warmup
+
+model:
+  dropout: 0.05
+  n_layers: 6
+  prenorm: true
+  d_model: 256
+  norm: batch
+  layer:
+    lr: 0.001
+    dt_min: 0.001
+    dt_max: 0.1
+    bidirectional: false
+    fr_scale: 1
+    train_scale: false
+    spatial: 'Binary'
+
+decoder:
+  mode: pool
+
+loader:
+  batch_size: 64
+
+optimizer:
+  lr: 0.005
+  weight_decay: 0.03
+
+trainer:
+  max_epochs: 200
+
+scheduler:
+  num_training_steps: 500000    # 200 epochs
+  num_warmup_steps: 2500
+
+#scheduler:
+#  num_training_steps: 100000 # 40 epochs
+#  num_warmup_steps: 2500 # 1 epoch
+#
+#trainer:
+#  max_epochs: 40
+
+train:
+  seed: 2222
+  interval: step
+  monitor: test/accuracy
+
+dataset:
+  tokenize: true
+  center: true

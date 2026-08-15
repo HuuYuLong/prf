@@ -1,0 +1,58 @@
+# @package _global_
+defaults:
+  - /pipeline: pathx
+  - /model: snn
+  - override /scheduler: cosine_warmup
+
+#scheduler:
+#  num_training_steps: 125000 # 50 epochs
+#  num_warmup_steps: 1250
+
+
+scheduler:
+  num_training_steps: 250000 # 50 epochs
+  num_warmup_steps: 5000 # 1 epoch
+
+model:
+  dropout: 0.
+  n_layers: 2
+  prenorm: true
+  d_model: 128
+  norm: batch
+  layer:
+#    d_state: 64
+#    lr: 0.001
+    dt_min: 0.0001
+    dt_max: 0.1
+    bidirectional: true
+    fr_scale: 10
+    train_scale: false
+    v_th: 1.
+    tau: 100.
+    neuron_lr: 0.0001
+    spatial: 'Binary'
+
+loader:
+  batch_size: 32
+
+optimizer:
+  lr: 0.0005
+  weight_decay: 0.2
+
+trainer:
+  max_epochs: 50
+  devices: 1
+
+train:
+  seed: 2222
+  interval: step # For cosine scheduler
+  monitor: test/accuracy
+  optimizer_param_grouping:
+    normalization_weight_decay: false
+    bias_weight_decay: false
+
+dataset:
+#  tokenize: true
+  center: true
+#
+#encoder: embedding

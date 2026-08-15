@@ -1,0 +1,43 @@
+# @package _global_
+defaults:
+  - /pipeline: mnist
+  - /model: snn
+  - override /scheduler: cosine_warmup
+
+model:
+  dropout: 0.1
+  tie_dropout: true
+  n_layers: 3
+  d_model: 128
+  prenorm: false
+  norm: batch
+  layer:
+    lr: 0.001
+    dt_min: 0.001
+    dt_max: 0.1
+    bidirectional: false
+    fr_scale: 1
+    train_scale: false
+
+
+dataset:
+#  grayscale: true
+  permute: true
+
+loader:
+  batch_size: 64
+
+optimizer:
+  lr: 0.005
+  weight_decay: 0.05
+
+trainer:
+  max_epochs: 200
+
+scheduler:
+  num_training_steps: 168600  # 200 epochs
+  num_warmup_steps: 8430
+
+train:
+  seed: 2222
+  monitor: test/accuracy
