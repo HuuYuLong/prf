@@ -4,7 +4,7 @@ Implements the Parallel Resonate-and-Fire (PRF) neuron and the Spike-Driven
 Temporal and Channel Mixer (SD-TCM) blocks used in the paper:
 
     "PRF: Parallel Resonate and Fire Neuron for Long Sequence Learning in
-    Spiking Neural Networks" (Pattern Recognition, PR-D-26-03117R1).
+    Spiking Neural Networks".
 
 Neuron models:
   - PRFNeuron:        PRF neuron (complex-domain resonance, no explicit reset).

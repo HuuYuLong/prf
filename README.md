@@ -1,6 +1,6 @@
 # PRF: Parallel Resonate and Fire Neuron for Long Sequence Learning in Spiking Neural Networks
 
-Official code release for the paper **"PRF: Parallel Resonate and Fire Neuron for Long Sequence Learning in Spiking Neural Networks"** (Pattern Recognition, manuscript PR-D-26-03117R1).
+Official code release for the paper **"PRF: Parallel Resonate and Fire Neuron for Long Sequence Learning in Spiking Neural Networks"**.
 
 The release contains the **PRF neuron**, the **SD-TCM (Spike-Driven Temporal and Channel Mixer)** backbone, and the experiment configurations used in the paper for:
 
